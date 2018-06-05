@@ -3,9 +3,9 @@ import App from './App.vue';
 
 const vm = new Vue({
   el: '#app',
-  render: h => h(App),
+  render: h => h(App)
 });
 
 Vue.use({
-  vm,
+  vm
 });

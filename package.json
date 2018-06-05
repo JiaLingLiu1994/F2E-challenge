@@ -15,6 +15,7 @@
     "eslint": "^4.19.1",
     "eslint-plugin-html": "^4.0.3",
     "eslint-plugin-vue": "^4.5.0",
+    "html-webpack-plugin": "^3.2.0",
     "vue": "^2.5.11"
   },
   "browserslist": [

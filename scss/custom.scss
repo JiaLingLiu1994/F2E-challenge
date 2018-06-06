@@ -3,8 +3,9 @@ $theme-colors: (
   'cornflower-blue-dark': #00408B,
   'white-smoke': #F2F2F2,
   'white-smoke-light': #E1E1E1,
-  'very-light-grey': #C8C8C8,
-  'sonic-sliver': #757575
+  'very-light-grey': #c8c8c8,
+  'sonic-sliver': #757575,
+  'venetian-red': #D0021B
 );
 
 .mr-32px {
@@ -16,8 +17,27 @@ $theme-colors: (
     padding-right: 32px; 
 }
 
+.px-72px {
+    padding-left: 72px;
+    padding-right: 72px; 
+}
+
 .cursor-pointer {
     cursor: pointer;
+}
+
+.btn {
+    &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.btn-cornflower-blue:hover {
+    background-color: #3982D7 !important;
+}
+
+.btn-white:hover {
+    background-color: #FDFDFD !important;
 }
 
 @import "node_modules/bootstrap/scss/bootstrap";

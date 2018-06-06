@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import * as svgicon from 'vue-svgicon';
+import 'bootstrap';
 import App from './App.vue';
 
 Vue.use(svgicon);

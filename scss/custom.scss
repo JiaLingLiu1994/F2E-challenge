@@ -1,0 +1,23 @@
+$theme-colors: (
+  'cornflower-blue': #4A90E2,
+  'cornflower-blue-dark': #00408B,
+  'white-smoke': #F2F2F2,
+  'white-smoke-light': #E1E1E1,
+  'very-light-grey': #C8C8C8,
+  'sonic-sliver': #757575
+);
+
+.mr-32px {
+    margin-right: 32px;
+}
+
+.px-32px {
+    padding-left: 32px;
+    padding-right: 32px; 
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+@import "node_modules/bootstrap/scss/bootstrap";

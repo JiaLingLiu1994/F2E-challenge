@@ -1,5 +1,8 @@
 import Vue from 'vue';
+import * as svgicon from 'vue-svgicon';
 import App from './App.vue';
+
+Vue.use(svgicon);
 
 const vm = new Vue({
   el: '#app',

@@ -1,32 +1,34 @@
 <template>
-  <div id="app">
-    <navbar/>
+  <div id="app" class="bg-white-smoke-light">
+    <to-do-list/>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/navbar';
+import ToDoList from '@/pages/todolist';
 
 export default {
   name: 'app',
   components: {
-    Navbar
+    ToDoList
   },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
     }
   },
 }
 </script>
 
 <style lang="scss">
+@import '../scss/custom';
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+
 #app {
   font-family: 'Roboto Medium';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  height: 100vh;
 }
 
 h1, h2 {

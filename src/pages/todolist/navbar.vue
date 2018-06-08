@@ -1,18 +1,16 @@
 <template>
-  <div>
-    <el-menu
-      :default-active="activeIndex"
-      class="el-menu-demo d-flex justify-content-center"
-      mode="horizontal"
-      @select="handleSelect"
-      background-color="#4A90E2"
-      text-color="#00408B"
-      active-text-color="#FFFFFF">
-      <el-menu-item index="1">My Tasks</el-menu-item>
-      <el-menu-item index="2">In Progress</el-menu-item> 
-      <el-menu-item index="3">Completed</el-menu-item>
-    </el-menu>
-  </div>
+  <el-menu
+    :default-active="activeIndex"
+    class="el-menu-demo d-flex justify-content-center"
+    mode="horizontal"
+    @select="handleSelect"
+    background-color="#4A90E2"
+    text-color="#00408B"
+    active-text-color="#FFFFFF">
+    <el-menu-item index="1">My Tasks</el-menu-item>
+    <el-menu-item index="2">In Progress</el-menu-item> 
+    <el-menu-item index="3">Completed</el-menu-item>
+  </el-menu>
 </template>
 
 <script>
@@ -30,7 +28,6 @@ export default {
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
     }
   }
 }
@@ -47,7 +44,8 @@ export default {
     }
     
     .is-active {
-      font-weight: 700
+      font-weight: 700;
+      border-bottom-color: #00408B !important;
     }
   }
 </style>

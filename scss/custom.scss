@@ -3,9 +3,11 @@ $theme-colors: (
   'cornflower-blue-dark': #00408B,
   'white-smoke': #F2F2F2,
   'white-smoke-light': #E1E1E1,
-  'very-light-grey': #c8c8c8,
+  'very-light-grey': #C8C8C8,
   'sonic-sliver': #757575,
-  'venetian-red': #D0021B
+  'nobel-grey': #9B9B9B,
+  'venetian-red': #D0021B,
+  'yellow-light': #FFF2DC
 );
 
 .mr-32px {
@@ -24,6 +26,10 @@ $theme-colors: (
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.text-line-thru {
+    text-decoration: line-through #9B9B9B;
 }
 
 .btn {

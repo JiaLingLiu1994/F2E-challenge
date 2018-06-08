@@ -1,16 +1,28 @@
 <template>
   <div class="mt-4 d-flex align-items-center flex-column">
-    <div class="task-list bg-white-smoke border-right-0 border-left-0 border-bottom-0 ">
+    <div 
+        :class="[taskObj.highlight ? 'bg-yellow-light' : 'bg-white-smoke']"
+        class="task-list border-right-0 border-left-0 border-bottom-0 ">
         <div class="d-flex flex-row pt-4 pb-2 px-32px">
             <el-checkbox 
                 class="mt-1"
                 v-model="checked"/>
-                
+
             <div class="ml-3 d-flex flex-column flex-fill text-left">
                 <div>
-                    <span class="task-name">Task Name</span>
+                    <span 
+                        :class="{'text-line-thru text-nobel-grey': checked}"
+                        class="task-name">{{ taskObj.name }}</span>
                     <div class="mt-1 float-right">
-                        <svgicon class="cursor-pointer mr-32px" name="star" width="20" height="20" color="#000000"></svgicon>
+                        <span @click="highlightEvt(taskId)">
+                            <svgicon 
+                                class="cursor-pointer mr-32px" 
+                                name="star" 
+                                width="20" 
+                                height="20" 
+                                :color="taskObj.highlight ? '#F5A623' : '#000000'"/>
+                        </span>
+                        
                         <svgicon 
                             class="cursor-pointer" 
                             name="edit" 
@@ -18,9 +30,9 @@
                             height="20" 
                             color="#000000"
                             data-toggle="collapse" 
-                            data-target="#collapseExample" 
+                            :data-target="'#'+ taskId"
                             aria-expanded="false" 
-                            aria-controls="collapseExample"/>
+                            :aria-controls="taskId"/>
                     </div>
                 </div>
                 
@@ -33,8 +45,11 @@
             </div>
         </div>
         
-        <div class="pt-4 align-items-center collapse" id="collapseExample">
+        <div
+            :id="taskId"
+            class="pt-4 align-items-center collapse">
             <edit-panel/>
+
             <div class="row w-100 mx-0">
                 <button href="#" class="btn btn-white text-venetian-red col"><i class="fas fa-times mr-3"></i>Cancel</button>
                 <button href="#" class="btn btn-cornflower-blue col"><i class="fas fa-plus mr-3"></i>Add Task</button>
@@ -47,9 +62,9 @@
 <script>
 import Vue from 'vue';
 import ElementUI from 'element-ui';
+import EditPanel from '@/pages/todolist/editPanel';
 import 'element-ui/lib/theme-chalk/checkbox.css';
 import '@/icons';
-import EditPanel from '@/pages/todolist/editPanel';
 
 Vue.use(ElementUI);
 
@@ -57,9 +72,24 @@ export default {
   components: {
     EditPanel
   },
+  props: {
+    taskId: {
+        type: Number,
+        required: true
+    },
+    taskObj: {
+        type: Object,
+        required: true
+    }
+  },
   data () {
     return {
         checked: false
+    }
+  },
+  methods: {
+    highlightEvt(id) {
+        this.$emit('highlight', {'id': id, 'highlight': !this.taskObj.highlight});
     }
   }
 }

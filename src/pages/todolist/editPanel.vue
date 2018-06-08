@@ -16,6 +16,7 @@
                 placeholder="yyyy/mm/dd"
                 size="mini">
             </el-date-picker>
+
             <el-time-select
                 class="ml-2"
                 v-model="timeValue"
@@ -47,9 +48,13 @@
             :limit="3"
             :on-exceed="handleExceed"
             :file-list="fileList">
+
             <el-button 
                 class="btn-very-light-grey px-0"
-                size="small"><i class="fas fa-plus"/></el-button>
+                size="small">
+                <i class="fas fa-plus"/>
+            </el-button>
+
             <div slot="tip" class="el-upload__tip">Upload jpg/png files which are less than 500kb.</div>
         </el-upload>
 
@@ -68,8 +73,6 @@
             placeholder="Type your memo here…"
             v-model="textarea">
         </el-input>
-
-
   </div>
 </template>
 
@@ -84,38 +87,40 @@ import 'element-ui/lib/theme-chalk/upload.css';
 Vue.use(ElementUI);
 
 export default {
-  components: {
-    IconLabel
-  },
-  data () {
-    return {
-        dateValue: '',
-        timeValue: '',
-        dialogImageUrl: '',
-        dialogVisible: false,
-        fileList: [],
-        textarea: ''
+    components: {
+        IconLabel
+    },
+    data () {
+        return {
+            dateValue: '',
+            timeValue: '',
+            dialogImageUrl: '',
+            dialogVisible: false,
+            fileList: [],
+            textarea: ''
+        }
+    },
+    methods: {
+        handleRemove(file, fileList) {
+            console.log(file, fileList);
+        },
+        handlePreview(file) {
+            console.log(file);
+        },
+        handleExceed(files, fileList) {
+            this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，
+            共选择了 ${files.length + fileList.length} 个文件`);
+        },
+        beforeRemove(file, fileList) {
+            return this.$confirm(`确定移除 ${ file.name }？`);
+        }
     }
-  },
-  methods: {
-      handleRemove(file, fileList) {
-        console.log(file, fileList);
-      },
-      handlePreview(file) {
-        console.log(file);
-      },
-      handleExceed(files, fileList) {
-        this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，
-        共选择了 ${files.length + fileList.length} 个文件`);
-      },
-      beforeRemove(file, fileList) {
-        return this.$confirm(`确定移除 ${ file.name }？`);
-      }
-  }
 }
 </script>
 
 <style lang="scss">
+$cornflower-blue: #4A90E2;
+
     .task-list {
         .el-date-editor{
             width: 160px;
@@ -132,9 +137,19 @@ export default {
                 border-radius: 2px;
                 color: white;
 
-                &:hover {
-                    background-color: #4A90E2;
-                    border-color: #4A90E2;
+                &:hover, &:focus {
+                    background-color: $cornflower-blue;
+                    border-color: $cornflower-blue;
+                }
+
+                &:focus, &:active {
+                    color: white;
+                    box-shadow: none;
+                    outline: none;
+                }
+
+                &:focus:active {
+                   box-shadow: none; 
                 }
             }
         }
@@ -142,9 +157,11 @@ export default {
 </style>
 
 <style lang="scss" scoped>
+$very-light-grey: #C8C8C8;
+
     .card {
         border-radius: 0;
-        border-top: 2px solid #C8C8C8;
-        box-shadow: 0 4px 4px 0 #C8C8C8;
+        border-top: 2px solid $very-light-grey;
+        box-shadow: 0 4px 4px 0 $very-light-grey;
     }
 </style>

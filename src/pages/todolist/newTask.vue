@@ -1,59 +1,59 @@
 <template>
     <div class="mt-4 d-flex align-items-center flex-column">
     <div 
-        :class="[taskObj.highlight ? 'bg-yellow-light' : 'bg-white-smoke']"
+        :class="[highlight ? 'bg-yellow-light' : 'bg-white-smoke']"
         class="task-list border-right-0 border-left-0 border-bottom-0 ">
-        <div class="d-flex flex-row pt-4 pb-2 px-32px">
+        <div class="d-flex flex-row py-3 pb-2 px-32px">
             <el-checkbox 
                 class="mt-1"
                 v-model="checked"/>
 
             <div class="ml-3 d-flex flex-column flex-fill text-left">
-                <div>
-                    <span 
+                <div class="d-flex flex-row justify-content-between">
+                    <div
                         :class="{'text-line-thru text-nobel-grey': checked}"
-                        class="task-name">{{ taskObj.name }}</span>
+                        class="task-name cursor-pointer">
+                        <span
+                            v-if="!editingName"
+                            @click="editingName = !editingName;">{{ name | checkName }}</span>
+                        <i-input 
+                            v-if="editingName"
+                            class="new-task"
+                            :txtValue="name"
+                            v-on:blur="blurEvt($event)"
+                            v-model="name"/>
+                    </div>
                     <div class="mt-1 float-right">
-                        <span @click="highlightEvt(taskId)">
+                        <span @click="highlightEvt()">
                             <svgicon 
                                 class="cursor-pointer mr-32px" 
                                 name="star" 
                                 width="20" 
                                 height="20" 
-                                :color="taskObj.highlight ? '#F5A623' : '#000000'"/>
+                                :color="highlight ? '#F5A623' : '#000000'"/>
                         </span>
                         
                         <svgicon 
-                            :id="'edit-panel-' + taskId"
-                            class="cursor-pointer" 
                             name="edit" 
                             width="20" 
                             height="20" 
-                            :color="editMode(taskId) ? '#4A90E2' : '#000000'"
-                            data-toggle="collapse" 
-                            :data-target="'#'+ taskId"
-                            aria-expanded="false" 
-                            :aria-controls="taskId"
+                            color="#4A90E2"
                             @click="click"/>
                     </div>
-                </div>
-                
-                <div class="mt-2">
-                    <!-- <svgicon name="calendar" width="16" height="16" color="#757575"></svgicon>
-                    <span class="calendar-time">06/15</span>
-                    <svgicon name="file" width="16" height="16" color="#757575"></svgicon>
-                    <svgicon name="comment" width="16" height="16" color="#757575"></svgicon> -->
                 </div>
             </div>
         </div>
         
         <div
-            :id="taskId"
-            class="pt-4 align-items-center bg-white-smoke collapse">
+            class="pt-4 align-items-center bg-white-smoke edit-area">
             <edit-panel/>
 
             <div class="row w-100 mx-0">
-                <button href="#" class="btn btn-white text-venetian-red col"><i class="fas fa-times mr-3"></i>Cancel</button>
+                <button 
+                    class="btn btn-white text-venetian-red col"
+                    @click="closeNewTask">
+                    <i class="fas fa-times mr-3"></i>Cancel
+                </button>
                 <button href="#" class="btn btn-cornflower-blue col"><i class="fas fa-plus mr-3"></i>Add Task</button>
             </div>
         </div>
@@ -67,6 +67,7 @@ import ElementUI from 'element-ui';
 import Axios from 'axios';
 import VueAxios from 'vue-axios';
 import EditPanel from '@/pages/todolist/editPanel';
+import Iuput from '@/components/input';
 import 'element-ui/lib/theme-chalk/checkbox.css';
 import '@/icons';
 
@@ -75,37 +76,36 @@ Vue.use(VueAxios, Axios);
 
 export default {
     components: {
-        EditPanel
+        EditPanel,
+        'i-input': Iuput
     },
-    props: {
-        taskId: {
-            type: Number,
-            required: true
-        },
-        taskObj: {
-            type: Object,
-            required: true
+    filters: {
+        checkName(val) {
+            return (val === '') ? 'Type Something Here...' : val;
         }
     },
     data () {
         return {
-            checked: false
+            name: '',
+            checked: false,
+            highlight: false,
+            editingName: false
         }
     },
     methods: {
         highlightEvt(id) {
-            this.$emit('highlight', {'id': id, 'highlight': !this.taskObj.highlight});
-        },
-        editMode(id) {
-            console.log(`edit-panel-${id}`)
-            console.log(document.getElementById(`edit-panel-${id}`));
-            if (document.getElementById(`edit-panel-${id}`)) {
-                return !document.getElementById(`edit-panel-${id}`).getAttribute('aria-expanded');
-            }
-            return false;
+            this.highlight = !this.highlight;
         },
         click() {
             console.log("1")
+        },
+        closeNewTask() {
+            this.$emit('closeNewTask');
+        },
+        blurEvt(evt) {
+            this.name = evt;
+            this.editingName = !this.editingName;
+
         }
     }
 }
@@ -127,7 +127,7 @@ export default {
             }
         }
 
-        .collapse, .collapsing {
+        .edit-area {
             border-top: 2px solid #C8C8C8;
 
             .btn {
@@ -136,6 +136,12 @@ export default {
                 width: 100%;
                 border: 0
             }
+        }
+    }
+
+    .new-task {
+        .el-input__inner {
+            width: 250px;
         }
     }
 </style>

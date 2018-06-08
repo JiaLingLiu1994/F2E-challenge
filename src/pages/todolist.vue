@@ -3,9 +3,15 @@
     <navbar/>
 
     <i-input
+      v-if="!isOnFocus"
       inputClass="mt-4 d-flex justify-content-center adding-bar"
       placeholderTxt="Add Task"
-      prefix-icon="el-icon-plus"/>
+      prefix-icon="el-icon-plus"
+      v-on:focusInput="focusInput"/>
+
+    <new-task 
+      v-if="isOnFocus"
+      v-on:closeNewTask="focusInput"/>
 
     <task-list 
       v-for="(i, index) in sortedLists"
@@ -23,12 +29,14 @@
 <script>
 import Navbar from '@/pages/todolist/navbar';
 import TaskList from '@/pages/todolist/taskList';
+import NewTask from '@/pages/todolist/newTask';
 import Iuput from '@/components/input';
 
 export default {
   components: {
     Navbar,
     TaskList,
+    NewTask,
     'i-input': Iuput
   },
   data () {
@@ -38,7 +46,8 @@ export default {
         '2': {'id': 2, 'name': 'Task Two', 'highlight': true},
         '3': {'id': 3, 'name': 'Task Three', 'highlight': false},
         '4': {'id': 4, 'name': 'Task Four', 'highlight': false}
-      }
+      },
+      isOnFocus: false
     }
   },
   computed: {
@@ -48,7 +57,10 @@ export default {
   },
   methods: {
     highlight(evt) {
-     this.lists[evt.id].highlight = evt.highlight;
+      this.lists[evt.id].highlight = evt.highlight;
+    },
+    focusInput() {
+      this.isOnFocus = !this.isOnFocus;
     }
   }
 }

@@ -20,7 +20,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../scss/custom';
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 #app {

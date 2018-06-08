@@ -4,9 +4,11 @@
     <el-input
       :placeholder="placeholderTxt"
       v-model="inputVal"
+      :value="txtValue"
       :prefix-icon="prefixIcon"
       :suffix-icon="suffixIcon"
-      @focus="focus">
+      @focus="focus"
+      @blur="blur">
     </el-input>
   </div>
 </template>
@@ -28,6 +30,10 @@ export default {
       type: String,
       default: ''
     },
+    txtValue: {
+      type: String,
+      default: ''
+    },
     suffixIcon: {
       type: String,
       default: ''
@@ -42,9 +48,15 @@ export default {
         inputVal: ''
     }
   },
+  created() {
+    this.inputVal = this.txtValue;
+  },
   methods: {
       focus() {
-          console.log('1')
+        this.$emit('focusInput');
+      },
+      blur() {
+        this.$emit('blur', this.inputVal);
       }
   }
 }

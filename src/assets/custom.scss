@@ -46,4 +46,6 @@ $theme-colors: (
     background-color: #FDFDFD !important;
 }
 
-@import "node_modules/bootstrap/scss/bootstrap";
+//@import './assets/helpers/_variables';
+//@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/bootstrap';

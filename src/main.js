@@ -2,7 +2,9 @@ import Vue from 'vue';
 import _ from 'lodash';
 import * as svgicon from 'vue-svgicon';
 import 'bootstrap';
+import './assets/custom.scss';
 import App from './App.vue';
+
 
 Vue.use(svgicon);
 window._ = _;

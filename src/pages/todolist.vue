@@ -13,16 +13,13 @@
       v-if="isOnFocus"
       v-on:closeNewTask="focusInput"/>
 
-    <draggable
-      v-model="lists"
-      @end="dragEnd">
-      <task-list 
+    <router-view></router-view>
+      <!-- <task-list 
         v-for="(i, index) in sortedLists"
         :key="index"
         :taskId="i.id"
         :taskObj="i"
-        v-on:highlight="highlight($event)"/>
-    </draggable>
+        v-on:changeVal="changeVal($event)"/> -->
 
     <div class="mt-2 d-flex justify-content-center">
       <p class="text-left text-very-light-grey summary-field"> {{ lists.length }} tasks left</p>
@@ -48,10 +45,10 @@ export default {
   data () {
     return {
       lists: [
-        {'id': 1, 'name': 'Task One', 'highlight': false},
-        {'id': 2, 'name': 'Task Two', 'highlight': true},
-        {'id': 3, 'name': 'Task Three', 'highlight': false},
-        {'id': 4, 'name': 'Task Four', 'highlight': false}
+        {'id': 1, 'name': 'Task One', 'highlight': false, 'checked': false},
+        {'id': 2, 'name': 'Task Two', 'highlight': true, 'checked': false},
+        {'id': 3, 'name': 'Task Three', 'highlight': false, 'checked': false},
+        {'id': 4, 'name': 'Task Four', 'highlight': false, 'checked': true}
       ],
       isOnFocus: false
     }
@@ -63,9 +60,9 @@ export default {
     }
   },
   methods: {
-    highlight(evt) {
+    changeVal(evt) {
       const index = _.findIndex(this.lists, {'id': evt.id});
-      this.lists[index].highlight = evt.highlight;
+      _.set(this.lists, [index, evt.type], evt.value);
     },
     focusInput() {
       this.isOnFocus = !this.isOnFocus;

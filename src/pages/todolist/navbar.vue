@@ -7,9 +7,9 @@
     background-color="#4A90E2"
     text-color="#00408B"
     active-text-color="#FFFFFF">
-    <el-menu-item index="1">My Tasks</el-menu-item>
-    <el-menu-item index="2">In Progress</el-menu-item> 
-    <el-menu-item index="3">Completed</el-menu-item>
+    <router-link to="/"><el-menu-item index="1">My Tasks</el-menu-item></router-link>
+    <router-link to="/in-progress"><el-menu-item index="2">In Progress</el-menu-item></router-link>
+    <router-link to="/completed"><el-menu-item index="3">Completed</el-menu-item></router-link>
   </el-menu>
 </template>
 

@@ -6,7 +6,9 @@
         <div class="d-flex flex-row pt-4 pb-2 px-32px">
             <el-checkbox 
                 class="mt-1"
-                v-model="checked"/>
+                v-model="checked"
+                :checked="taskObj.checked"
+                @change="changeVal(taskId, 'checked')"/>
 
             <div class="ml-3 d-flex flex-column flex-fill text-left">
                 <div>
@@ -14,7 +16,7 @@
                         :class="{'text-line-thru text-nobel-grey': checked}"
                         class="task-name">{{ taskObj.name }}</span>
                     <div class="mt-1 float-right">
-                        <span @click="highlightEvt(taskId)">
+                        <span @click="changeVal(taskId, 'highlight')">
                             <svgicon 
                                 class="cursor-pointer mr-32px" 
                                 name="star" 
@@ -23,18 +25,18 @@
                                 :color="taskObj.highlight ? '#F5A623' : '#000000'"/>
                         </span>
                         
-                        <span >
+                        <span @click="changeVal(taskId, 'checked')">
                             <svgicon 
-                            :id="'edit-panel-' + taskId"
-                            class="cursor-pointer" 
-                            name="edit" 
-                            width="20" 
-                            height="20" 
-                            :color="editMode(taskId) ? '#4A90E2' : '#000000'"
-                            data-toggle="collapse" 
-                            :data-target="'#'+ taskId"
-                            aria-expanded="false" 
-                            :aria-controls="taskId"/>
+                                :id="'edit-panel-' + taskId"
+                                class="cursor-pointer" 
+                                name="edit" 
+                                width="20" 
+                                height="20" 
+                                :color="editMode(taskId) ? '#4A90E2' : '#000000'"
+                                data-toggle="collapse" 
+                                :data-target="'#'+ taskId"
+                                aria-expanded="false" 
+                                :aria-controls="taskId"/>
                         </span>
                     </div>
                 </div>
@@ -96,8 +98,10 @@ export default {
         }
     },
     methods: {
-        highlightEvt(id) {
-            this.$emit('highlight', {'id': id, 'highlight': !this.taskObj.highlight});
+        changeVal(id, type) {
+            const temp = `${type}`;
+            this.$emit('changeVal', {'id': id, 'value': !_.get(this.taskObj, [type])
+                , 'type': temp});
         },
         editMode(id) {
             if (document.getElementById(`edit-panel-${id}`)) {

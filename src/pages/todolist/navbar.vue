@@ -45,6 +45,8 @@ export default {
   .el-menu-demo {
     .el-menu-item {
       width: 160px;
+      padding: 0;
+      margin: 0;
 
       &:hover {
         background-color: #3982D7 !important;
@@ -53,7 +55,7 @@ export default {
     
     .is-active {
       font-weight: 700;
-      border-bottom-color: #00408B !important;
+      border-bottom: 2px solid #00408B !important;
     }
   }
 </style>

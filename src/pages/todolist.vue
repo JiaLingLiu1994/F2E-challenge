@@ -13,12 +13,16 @@
       v-if="isOnFocus"
       v-on:closeNewTask="focusInput"/>
 
-    <task-list 
-      v-for="(i, index) in sortedLists"
-      :key="index"
-      :taskId="i.id"
-      :taskObj="i"
-      v-on:highlight="highlight($event)"/>
+    <draggable
+      v-model="lists"
+      @end="dragEnd">
+      <task-list 
+        v-for="(i, index) in sortedLists"
+        :key="index"
+        :taskId="i.id"
+        :taskObj="i"
+        v-on:highlight="highlight($event)"/>
+    </draggable>
 
     <div class="mt-2 d-flex justify-content-center">
       <p class="text-left text-very-light-grey summary-field"> {{ lists.length }} tasks left</p>
@@ -31,36 +35,42 @@ import Navbar from '@/pages/todolist/navbar';
 import TaskList from '@/pages/todolist/taskList';
 import NewTask from '@/pages/todolist/newTask';
 import Iuput from '@/components/input';
+import Draggable from 'vuedraggable';
 
 export default {
   components: {
     Navbar,
     TaskList,
     NewTask,
-    'i-input': Iuput
+    'i-input': Iuput,
+    Draggable
   },
   data () {
     return {
-      lists: {
-        '1': {'id': 1, 'name': 'Task One', 'highlight': false},
-        '2': {'id': 2, 'name': 'Task Two', 'highlight': true},
-        '3': {'id': 3, 'name': 'Task Three', 'highlight': false},
-        '4': {'id': 4, 'name': 'Task Four', 'highlight': false}
-      },
+      lists: [
+        {'id': 1, 'name': 'Task One', 'highlight': false},
+        {'id': 2, 'name': 'Task Two', 'highlight': true},
+        {'id': 3, 'name': 'Task Three', 'highlight': false},
+        {'id': 4, 'name': 'Task Four', 'highlight': false}
+      ],
       isOnFocus: false
     }
   },
   computed: {
     sortedLists() {
+      this.lists = _.orderBy(this.lists, ['highlight'], ['desc']);
       return _.orderBy(this.lists, ['highlight'], ['desc']);
     }
   },
   methods: {
     highlight(evt) {
-      this.lists[evt.id].highlight = evt.highlight;
+      const index = _.findIndex(this.lists, {'id': evt.id});
+      this.lists[index].highlight = evt.highlight;
     },
     focusInput() {
       this.isOnFocus = !this.isOnFocus;
+    },
+    dragEnd() {
     }
   }
 }
@@ -76,6 +86,10 @@ export default {
       .el-input__inner {
         border: 2px solid #c8c8c8;
       }
+    }
+
+    .ghost {
+      opacity: 0.4;
     }
   }
 </style>

@@ -37,8 +37,7 @@
                             name="edit" 
                             width="20" 
                             height="20" 
-                            color="#4A90E2"
-                            @click="click"/>
+                            color="#4A90E2"/>
                     </div>
                 </div>
             </div>
@@ -96,16 +95,12 @@ export default {
         highlightEvt(id) {
             this.highlight = !this.highlight;
         },
-        click() {
-            console.log("1")
-        },
         closeNewTask() {
             this.$emit('closeNewTask');
         },
         blurEvt(evt) {
             this.name = evt;
             this.editingName = !this.editingName;
-
         }
     }
 }

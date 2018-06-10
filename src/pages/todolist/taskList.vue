@@ -23,7 +23,8 @@
                                 :color="taskObj.highlight ? '#F5A623' : '#000000'"/>
                         </span>
                         
-                        <svgicon 
+                        <span >
+                            <svgicon 
                             :id="'edit-panel-' + taskId"
                             class="cursor-pointer" 
                             name="edit" 
@@ -33,16 +34,18 @@
                             data-toggle="collapse" 
                             :data-target="'#'+ taskId"
                             aria-expanded="false" 
-                            :aria-controls="taskId"
-                            @click="click"/>
+                            :aria-controls="taskId"/>
+                        </span>
                     </div>
                 </div>
                 
-                <div class="mt-2">
-                    <!-- <svgicon name="calendar" width="16" height="16" color="#757575"></svgicon>
+                <div
+                    v-if="!editMode(taskId)"
+                    class="mb-2">
+                    <svgicon name="calendar" width="16" height="16" color="#757575"></svgicon>
                     <span class="calendar-time">06/15</span>
                     <svgicon name="file" width="16" height="16" color="#757575"></svgicon>
-                    <svgicon name="comment" width="16" height="16" color="#757575"></svgicon> -->
+                    <svgicon name="comment" width="16" height="16" color="#757575"></svgicon>
                 </div>
             </div>
         </div>
@@ -97,15 +100,10 @@ export default {
             this.$emit('highlight', {'id': id, 'highlight': !this.taskObj.highlight});
         },
         editMode(id) {
-            console.log(`edit-panel-${id}`)
-            console.log(document.getElementById(`edit-panel-${id}`));
             if (document.getElementById(`edit-panel-${id}`)) {
                 return !document.getElementById(`edit-panel-${id}`).getAttribute('aria-expanded');
             }
             return false;
-        },
-        click() {
-            console.log("1")
         }
     }
 }

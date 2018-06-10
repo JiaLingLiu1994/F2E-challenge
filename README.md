@@ -1,6 +1,10 @@
-# todolist-f2e
+# F2E Self Challenge
 
-> A Vue.js project
+> A Vue.js project to present a self-challenge contest.
+
+## Outline
+Week 1
+    To-do list
 
 ## Build Setup
 

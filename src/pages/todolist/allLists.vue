@@ -7,7 +7,7 @@
             :key="index"
             :taskId="i.id"
             :taskObj="i"
-            v-on:highlight="highlight($event)"/>
+            v-on:changeVal="changeVal($event)"/>
     </draggable>
 </template>
 
@@ -37,9 +37,9 @@ export default {
         }
     },
     methods: {
-        highlight(evt) {
+        changeVal(evt) {
             const index = _.findIndex(this.lists, {'id': evt.id});
-            this.lists[index].highlight = evt.highlight;
+            _.set(this.lists, [index, evt.type], evt.value);
         },
         dragEnd() {
         }

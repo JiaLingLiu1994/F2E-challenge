@@ -92,6 +92,8 @@ export default {
 </style>
 <style lang="scss" scoped>
   .to-do-list {
+    min-height: 100vh;
+    
     .summary-field {
       width: 420px;
     }

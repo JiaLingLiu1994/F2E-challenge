@@ -4,7 +4,7 @@
         type="dark" variant="purple">
 
         <b-navbar-brand href="#">
-            <img src="/src/img/logo.png"/>
+            <img src="src/img/logo.png"/>
         </b-navbar-brand>
 
         <b-navbar-nav class="d-none d-sm-inline justify-content-center">

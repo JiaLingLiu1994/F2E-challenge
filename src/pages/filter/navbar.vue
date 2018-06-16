@@ -4,7 +4,7 @@
         type="dark" variant="purple">
 
         <b-navbar-brand href="#">
-            <img src="src/img/logo.png"/>
+            <img src="https://hexschool.github.io/THE_F2E_Design/week2-filter/assets/logo.svg"/>
         </b-navbar-brand>
 
         <b-navbar-nav class="d-none d-sm-inline justify-content-center">

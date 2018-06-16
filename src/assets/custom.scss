@@ -1,27 +1,55 @@
 $theme-colors: (
-  'cornflower-blue': #4A90E2,
-  'cornflower-blue-dark': #00408B,
-  'white-smoke': #F2F2F2,
-  'white-smoke-light': #E1E1E1,
-  'very-light-grey': #C8C8C8,
-  'sonic-sliver': #757575,
-  'nobel-grey': #9B9B9B,
-  'venetian-red': #D0021B,
-  'yellow-light': #FFF2DC
+    'cornflower-blue': #4A90E2,
+    'cornflower-blue-dark': #00408B,
+    'white-smoke': #F2F2F2,
+    'white-smoke-light': #E1E1E1,
+    'very-light-grey': #C8C8C8,
+    'sonic-sliver': #757575,
+    'nobel-grey': #9B9B9B,
+    'venetian-red': #D0021B,
+    'yellow-light': #FFF2DC,
+
+    'purple': #7828B4,
+    'purple-light': #9013FE,
+    'whisper': #EBEBEB,
+    'light-grey': #D7D7D7,
+    'black': #000000
 );
 
 .mr-32px {
     margin-right: 32px;
 }
 
+.pl-32px {
+    padding-left: 32px !important;
+}
+
 .px-32px {
-    padding-left: 32px;
-    padding-right: 32px; 
+    padding-left: 32px !important;
+    padding-right: 32px !important; 
+}
+
+.py-32px {
+    padding-top: 32px;
+    padding-bottom: 32px;
 }
 
 .px-72px {
     padding-left: 72px;
     padding-right: 72px; 
+}
+
+@media (min-width: 768px) {
+    .pr-md-32px {
+        padding-right: 32px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .px-lg-32px {
+        padding-right: 32px !important;
+        padding-left: 32px !important;
+    }
 }
 
 .cursor-pointer {
@@ -46,6 +74,4 @@ $theme-colors: (
     background-color: #FDFDFD !important;
 }
 
-//@import './assets/helpers/_variables';
-//@import 'node_modules/bootstrap/scss/functions';
 @import 'node_modules/bootstrap/scss/bootstrap';

@@ -2,9 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import _ from 'lodash';
 import * as svgicon from 'vue-svgicon';
-import 'bootstrap';
 import './assets/custom.scss';
 import App from './App.vue';
+import store from './store';
 import allLists from './pages/todolist/allLists.vue';
 import InProgressLists from './pages/todolist/inProgressLists.vue';
 import CompletedLists from './pages/todolist/completedLists.vue';
@@ -27,6 +27,7 @@ const router = new VueRouter({
 const vm = new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 });
 

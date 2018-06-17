@@ -8,18 +8,50 @@ Vue.use(Vuex);
 const state = {
   attractions: {},
   filters: {
-    location: ''
+    location: '',
+    keyword: '',
+    checkboxs: []
   }
 };
 
 const getters = {
   filterAttractions(state) {
-    // if (!state.attractions) return;
-    return (state.filters.location) ? state.attractions.filter(attr =>
+    // const checkboxType = [
+    //   { type: 'Ticketinfo', name: '免付費景點' },
+    //   { type: 'Opentime', name: '全天候開放' }
+    // ];
+    const temp = (state.filters.location) ? state.attractions.filter(attr =>
       attr.Zone === state.filters.location) : state.attractions;
+
+    // TODO const tags = ['Name', 'Description', 'Add', 'Opentime'];
+    const tempX = (state.filters.keyword) ? temp.filter(attr =>
+      attr.Name.indexOf(state.filters.keyword) !== -1 ||
+      attr.Description.indexOf(state.filters.keyword) !== -1 ||
+      attr.Add.indexOf(state.filters.keyword) !== -1 ||
+      attr.Ticketinfo.indexOf(state.filters.keyword) !== -1 ||
+      attr.Opentime.indexOf(state.filters.keyword) !== -1) : temp;
+
+    /* global _ */
+    // TODO be fexible
+    const tempY = (state.filters.checkboxs.indexOf('免付費景點') !== -1) ? _.filter(tempX, attr =>
+      attr.Ticketinfo === '免費參觀') : tempX;
+
+    return (state.filters.checkboxs.indexOf('全天候開放') !== -1) ? _.filter(tempY, attr =>
+      attr.Opentime === '全天候開放') : tempY;
+    // return (state.filters.checkboxs) ? temp2.filter(() => {
+    //   let objName = [];
+    //   _.forEach(state.filters.checkboxs, (i) => {
+    //     _.concat(objName, _.find(checkboxType, { name: i }));
+    //     console.log(objName);
+    //   });
+    //   let results = temp2;
+    //   _.forEach(objName, (i, index) => {
+    //     results = _.filter(results, attr => attr[i] === checkboxType[index]);
+    //   });
+    //   return results;
+    // }) : temp2;
   }
 };
-
 
 const actions = {
   getAttractions(context) {
@@ -38,21 +70,6 @@ const actions = {
   setFilters(context, content) {
     context.commit('SET_FILTERS', content);
   }
-  // checkout ({ commit, state }, products) {
-  //   const savedCartItems = [...state.items]
-  //   commit('setCheckoutStatus', null)
-  //   // empty cart
-  //   commit('setCartItems', { items: [] })
-  //   shop.buyProducts(
-  //     products,
-  //     () => commit('setCheckoutStatus', 'successful'),
-  //     () => {
-  //       commit('setCheckoutStatus', 'failed')
-  //       // rollback to the cart saved before sending the request
-  //       commit('setCartItems', { items: savedCartItems })
-  //     }
-  //   )
-  // }
 };
 
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
@@ -63,8 +80,10 @@ const mutations = {
     state.attractions = results;
   },
   SET_FILTERS(state, content) {
-    console.log("innn");
     state.filters[content.name] = content.value;
+  },
+  UPDATE_KEYWORD(state, value) {
+    state.filters.keyword = value;
   }
 };
 

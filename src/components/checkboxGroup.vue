@@ -22,7 +22,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/select.css';
 
 Vue.use(ElementUI);
-const cityOptions = ['上海', '北京', '广州', '深圳'];
 
 export default {
     props: {
@@ -49,16 +48,22 @@ export default {
     },
     created() {
         this.options = this.allOptions;
+        this.checkAll = this.allChecked;
+        if (this.checkAll) {
+            this.checkOptions = this.allOptions;
+        }
     },
     methods: {
         handleCheckAllChange(val) {
             this.checkOptions = val ? this.allOptions : [];
             this.isIndeterminate = false;
+            this.$emit('optionsChange', this.checkOptions);
         },
         handleCheckedOptionsChange(value) {
             let checkedCount = value.length;
             this.checkAll = checkedCount === this.options.length;
             this.isIndeterminate = checkedCount > 0 && checkedCount < this.options.length;
+            this.$emit('optionsChange', this.checkOptions);
         }
     }
 }

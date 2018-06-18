@@ -23,7 +23,9 @@
                         size="sm" 
                         class="mr-sm-2 bg-transparent border-left-0 border-right-0 border-top-0 w-350px" 
                         type="text" 
-                        placeholder="Explore your own activities"/>
+                        placeholder="Explore your own activities"
+                        v-model="keyword"
+                        @change="change"/>
                 </b-input-group>
             </b-nav-form>
         </b-navbar-nav>
@@ -41,7 +43,20 @@ export default {
         return {
         }
     },
+    computed: {
+        keyword: {
+            get() {
+                return this.$store.state.Attractions.filters.keyword;
+            },
+            set(value) {
+                this.$store.commit('UPDATE_KEYWORD', value);
+            }
+        }
+    },
     methods: {
+        change(val) {
+            this.$emit('inputChanged', val);
+        }
     }
 }
 </script>
@@ -65,6 +80,14 @@ export default {
                     color: rgba(255,255,255,0.50);
                     font-size: 20px;
                     font-style: italic;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                &::-webkit-autofill {
+                    background-color: transparent;
                 }
             }
         }

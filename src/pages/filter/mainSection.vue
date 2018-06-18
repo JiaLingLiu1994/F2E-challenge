@@ -35,7 +35,8 @@
             <h5 class="px-32px text-black">Categories</h5>
             <checkbox-group 
                 class="px-32px categories-checkboxs"
-                :allOptions="allOptions"/>
+                :allOptions="allOptions"
+                v-on:optionsChange="optionsChange"/>
             
         </div>
 
@@ -49,7 +50,7 @@
                 v-if="!filterAttractions"
                 class="bg-whisper default-block"/>
     
-            <div class="d-flex flex-row flex-wrap">
+            <div class="d-flex flex-row flex-wrap tag-list">
                 <tag
                     v-for="i in checkedOptions"
                     :key="i"
@@ -89,8 +90,8 @@ export default {
         return {
             startDate: '',
             endDate: '',
-            allOptions: ['Entertainment', 'Food', 'Learning', 'Outdoors'],
-            checkedOptions: ['Entertainment', 'Kaohsiung'],
+            allOptions: ['免付費景點', '全天候開放'],
+            checkedOptions: ['免付費景點', '全天候開放'],   // default check all
             locations: kaohsiungcities
         }
     },
@@ -103,7 +104,11 @@ export default {
         ])
     },
     created() {
-        this.$store.dispatch('getAttractions')
+        this.$store.dispatch('getAttractions');
+        this.$store.dispatch('setFilters', {
+                name: 'checkboxs',
+                value: this.checkedOptions
+            });
     },
     methods: {
         ...mapActions([
@@ -112,9 +117,15 @@ export default {
             console.log(event);
         },
         selecterChanged(evt) {
-            console.log(evt);
             this.$store.dispatch('setFilters', {
                 name: 'location',
+                value: evt
+            });
+        },
+        optionsChange(evt) {
+            this.checkedOptions = evt;
+            this.$store.dispatch('setFilters', {
+                name: 'checkboxs',
                 value: evt
             });
         }
@@ -174,6 +185,10 @@ export default {
 
             .default-block {
                 height: 36px;
+            }
+
+            .tag-list {
+                min-height: 42px;
             }
         }
     }

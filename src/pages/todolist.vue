@@ -1,5 +1,5 @@
 <template>
-  <div class="to-do-list">
+  <div class="to-do-list bg-white-smoke-light">
     <navbar/>
 
     <i-input
@@ -14,12 +14,6 @@
       v-on:closeNewTask="focusInput"/>
 
     <router-view></router-view>
-      <!-- <task-list 
-        v-for="(i, index) in sortedLists"
-        :key="index"
-        :taskId="i.id"
-        :taskObj="i"
-        v-on:changeVal="changeVal($event)"/> -->
 
     <div class="mt-2 d-flex justify-content-center">
       <p class="text-left text-very-light-grey summary-field"> {{ lists.length }} tasks left</p>

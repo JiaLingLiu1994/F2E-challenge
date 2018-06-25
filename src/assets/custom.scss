@@ -13,11 +13,28 @@ $theme-colors: (
     'purple-light': #9013FE,
     'whisper': #EBEBEB,
     'light-grey': #D7D7D7,
-    'black': #000000
+    'black': #000000,
+
+    'yellow-green': #7ED321
 );
 
 .mr-32px {
     margin-right: 32px;
+}
+
+.mb-32px {
+    margin-bottom: 32px;
+}
+
+.p-32px {
+    padding-left: 32px !important;
+    padding-right: 32px !important;  
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.pt-32px {
+    padding-top: 32px;
 }
 
 .pl-32px {
@@ -32,6 +49,11 @@ $theme-colors: (
 .py-32px {
     padding-top: 32px;
     padding-bottom: 32px;
+}
+
+.px-42px {
+    padding-left: 42px;
+    padding-right: 42px; 
 }
 
 .px-72px {

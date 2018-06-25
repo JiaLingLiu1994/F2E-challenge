@@ -1,5 +1,5 @@
 <template>
-    <div class="search-filter">
+    <div class="search-filter bg-white-smoke pb-4">
         <navbar/>
 
         <main-section/>

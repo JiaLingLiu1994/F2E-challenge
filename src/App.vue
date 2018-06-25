@@ -1,20 +1,12 @@
 <template>
   <div id="app">
-    <!-- <to-do-list class="bg-white-smoke-light"/> -->
-    <search-filter class="bg-white-smoke pb-4"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import ToDoList from '@/pages/todolist';
-import SearchFilter from '@/pages/filter';
-
 export default {
   name: 'app',
-  components: {
-    ToDoList,
-    SearchFilter
-  },
   data () {
     return {
     }

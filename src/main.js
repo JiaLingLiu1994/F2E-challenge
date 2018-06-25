@@ -14,6 +14,7 @@ import CompletedLists from './pages/todolist/completedLists.vue';
 import AdminOrderIndex from './pages/adminOrder/index.vue';
 import AdminOrderOrders from './pages/adminOrder/orders.vue';
 import AdminOrderProduct from './pages/adminOrder/product.vue';
+import ProductGallery from './pages/productGallery.vue';
 
 Vue.use(VueRouter);
 Vue.use(svgicon);
@@ -38,8 +39,8 @@ const routes = [
       { path: 'orders', component: AdminOrderOrders },
       { path: 'product', component: AdminOrderProduct }
     ]
-
-  }
+  },
+  { path: '/ProductGallery', component: ProductGallery }
 ];
 
 const router = new VueRouter({

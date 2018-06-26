@@ -1,32 +1,14 @@
 <template>
   <div id="app">
-    <div v-if="pathCheck">
-      <!-- <router-link to="/ToDoList">Go to ToDoList</router-link>
-      <router-link to="/SearchFilter">Go to SearchFilter</router-link>
-      <router-link to="/AdminOrder">Go to AdminOrder</router-link> -->
-    </div>
-    <!-- <float-button/> -->
     <router-view/>
   </div>
 </template>
 
 <script>
-import FloatButton from '@/components/floatButton';
-
 export default {
   name: 'app',
-  components: {
-    FloatButton
-  },
   data () {
     return {
-    }
-  },
-  computed: {
-    pathCheck() {
-      const array = window.location.href;
-      console.log(array);
-      return true;
     }
   }
 }

@@ -1,92 +1,97 @@
 <template>
-    <div class="product-gallery bg-white pt-32px pb-4">
-        <div class="row mx-0">
-            <div class="col-3 block bg-black text-white font-weight-bold px-0 px-sm-2 mx-auto">CCCLOTHES</div>
-        </div>
-        
-        <div class="row mx-0 mt-2">
-            <div class="col-6 title text-black font-weight-bold px-0 mx-auto">MEN’S TOPS</div>
-        </div>
-
-        <div class="row mx-0 px-32px mt-83px">
-            <div class="col-6 px-0 image-frame-1">
-                <img class="img-1" src="https://images.unsplash.com/photo-1513827379601-9dba5099a3f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1acdd78f34ee75aade9e313251bb1695&auto=format&fit=crop&w=1534&q=80"/>
-                <div class="product-name position-absolute font-weight-bold">LINEN BLAZER</div>
-                <div class="decribe font-italic font-weight-bold position-absolute">Men’s outfit</div>
-                <div class="product-num position-absolute font-weight-bold">01</div>
-                <div class="square-stripe position-absolute"/>
-                <div class="pattern position-absolute"/>
+    <div>
+        <div class="product-gallery bg-white pt-32px pb-4 mx-auto">
+            <div class="row mx-0">
+                <div class="col-3 block bg-black text-white font-weight-bold px-0 px-sm-2 mx-auto">CCCLOTHES</div>
             </div>
             
-            <div class="col-4 px-0 ml-auto mr-40px product-2">
-                <div class="image-frame-2">
-                    <div class="decribe position-absolute font-italic font-weight-bold">Men’s basics</div>
-                    <img class="img-2" src="https://images.unsplash.com/photo-1514632542677-48fae74a01b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cf412aceb1d689765e387d30fca7210a&auto=format&fit=crop&w=634&q=80"/>
-                    <div class="product-num position-absolute font-weight-bold">02</div>
+            <div class="row mx-0 mt-2">
+                <div class="col-6 title text-black font-weight-bold px-0 mx-auto">MEN’S TOPS</div>
+            </div>
+
+            <div class="row mx-0 px-32px mt-83px">
+                <div class="col-6 px-0 image-frame-1">
+                    <img class="img-1" src="https://images.unsplash.com/photo-1513827379601-9dba5099a3f9?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1acdd78f34ee75aade9e313251bb1695&auto=format&fit=crop&w=1534&q=80"/>
+                    <div class="product-name position-absolute font-weight-bold">LINEN BLAZER</div>
+                    <div class="decribe font-italic font-weight-bold position-absolute">Men’s outfit</div>
+                    <div class="product-num position-absolute font-weight-bold">01</div>
                     <div class="square-stripe position-absolute"/>
-                    <div class="square-box position-absolute"/>
+                    <div class="pattern position-absolute"/>
                 </div>
                 
-                <div class="product-name font-weight-bold bg-white">FREELIFT</div>
-            </div>
-        </div>
-
-        <div class="row mx-0 px-32px mt-200px">
-            <div class="col-6 px-0 image-frame-3">
-                <img class="img-3" src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0f994eef47e5fb1a67849703cc961b3&auto=format&fit=crop&w=1050&q=80"/>
-                <div class="product-name font-weight-bold">SUPER SKINNY</div>
-                <div class="decribe font-italic font-weight-bold position-absolute">Men’s pattern shirts</div>
-                <div class="product-num position-absolute font-weight-bold">03</div>
-                <div class="square-stripe position-absolute"/>
-                <div class="square-box position-absolute"/>
-            </div>
-            <div class="col-4 px-0 ml-auto text-right product-4">
-                <div class="image-frame-4">
-                    <div class="product-name position-absolute font-weight-bold bg-white">DENIM</div>
-                    <div class="decribe position-absolute font-italic font-weight-bold">Men’s cadual</div>
-                    <img class="img-4" src="https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=39466d66952b133d5a5cff642b970d05&auto=format&fit=crop&w=687&q=80"/>
-                    <div class="product-num position-absolute font-weight-bold">04</div>
-                    <div class="square-stripe position-absolute"/>
-                    <div class="pattern position-absolute"/>
+                <div class="col-4 px-0 ml-auto mr-40px product-2">
+                    <div class="image-frame-2">
+                        <div class="decribe position-absolute font-italic font-weight-bold">Men’s basics</div>
+                        <img class="img-2" src="https://images.unsplash.com/photo-1514632542677-48fae74a01b2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=cf412aceb1d689765e387d30fca7210a&auto=format&fit=crop&w=634&q=80"/>
+                        <div class="product-num position-absolute font-weight-bold">02</div>
+                        <div class="square-stripe position-absolute"/>
+                        <div class="square-box position-absolute"/>
+                    </div>
+                    
+                    <div class="product-name font-weight-bold bg-white">FREELIFT</div>
                 </div>
             </div>
-        </div>
 
-        <div class="row mx-0 px-32px">
-            <div class="col-4 px-0 mr-auto product-5">
-                <div class="image-frame-5">
-                    <div class="product-name position-absolute font-weight-bold bg-white">SWEATSHIRTS</div>
-                    <div class="decribe position-absolute font-italic font-weight-bold">Men’s jacket</div>
-                    <img class="img-5" src="https://images.unsplash.com/photo-1525448198276-222de3961638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43fb25556cdbd191e520c7f28739e40d&auto=format&fit=crop&w=1050&q=80"/>
-                    <div class="product-num position-absolute font-weight-bold">05</div>
-                    <div class="square-stripe position-absolute"/>
-                    <div class="pattern position-absolute"/>
-                </div>
-            </div>
-        </div>
-
-        <div class="row mx-0 px-32px">
-            <div class="col-4 px-0 mr-auto text-left product-7">
-                <div class="image-frame-7">
-                    <div class="product-name position-absolute font-weight-bold bg-white">EDITION</div>
-                    <div class="decribe position-absolute font-italic font-weight-bold">Men’s shirts</div>
-                    <img class="img-7" src="https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ff45d79414b3166b08b800a32018be&auto=format&fit=crop&w=634&q=80"/>
-                    <div class="product-num position-absolute font-weight-bold">07</div>
+            <div class="row mx-0 px-32px mt-200px">
+                <div class="col-6 px-0 image-frame-3">
+                    <img class="img-3" src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0f994eef47e5fb1a67849703cc961b3&auto=format&fit=crop&w=1050&q=80"/>
+                    <div class="product-name font-weight-bold">SUPER SKINNY</div>
+                    <div class="decribe font-italic font-weight-bold position-absolute">Men’s pattern shirts</div>
+                    <div class="product-num position-absolute font-weight-bold">03</div>
                     <div class="square-stripe position-absolute"/>
                     <div class="square-box position-absolute"/>
                 </div>
+                <div class="col-4 px-0 ml-auto text-right product-4">
+                    <div class="image-frame-4">
+                        <div class="product-name position-absolute font-weight-bold bg-white">DENIM</div>
+                        <div class="decribe position-absolute font-italic font-weight-bold">Men’s cadual</div>
+                        <img class="img-4" src="https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=39466d66952b133d5a5cff642b970d05&auto=format&fit=crop&w=687&q=80"/>
+                        <div class="product-num position-absolute font-weight-bold">04</div>
+                        <div class="square-stripe position-absolute"/>
+                        <div class="pattern position-absolute"/>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 px-0 ml-auto product-6">
-                <div class="image-frame-6">
-                    <div class="product-name position-absolute font-weight-bold bg-white">VINTAGE DENIM</div>
-                    <div class="decribe position-absolute font-italic font-weight-bold">Men’s classic</div>
-                    <img class="img-6" src="https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=634&q=80"/>
-                    <div class="product-num position-absolute font-weight-bold">06</div>
-                    <div class="square-stripe position-absolute"/>
-                    <div class="square-box position-absolute"/>
+
+            <div class="row mx-0 px-32px">
+                <div class="col-4 px-0 mr-auto product-5">
+                    <div class="image-frame-5">
+                        <div class="product-name position-absolute font-weight-bold bg-white">SWEATSHIRTS</div>
+                        <div class="decribe position-absolute font-italic font-weight-bold">Men’s jacket</div>
+                        <img class="img-5" src="https://images.unsplash.com/photo-1525448198276-222de3961638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43fb25556cdbd191e520c7f28739e40d&auto=format&fit=crop&w=1050&q=80"/>
+                        <div class="product-num position-absolute font-weight-bold">05</div>
+                        <div class="square-stripe position-absolute"/>
+                        <div class="pattern position-absolute"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-0 px-32px">
+                <div class="col-4 px-0 mr-auto text-left product-7">
+                    <div class="image-frame-7">
+                        <div class="product-name position-absolute font-weight-bold bg-white">EDITION</div>
+                        <div class="decribe position-absolute font-italic font-weight-bold">Men’s shirts</div>
+                        <img class="img-7" src="https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ff45d79414b3166b08b800a32018be&auto=format&fit=crop&w=634&q=80"/>
+                        <div class="product-num position-absolute font-weight-bold">07</div>
+                        <div class="square-stripe position-absolute"/>
+                        <div class="square-box position-absolute"/>
+                    </div>
+                </div>
+                <div class="col-6 px-0 ml-auto product-6">
+                    <div class="image-frame-6">
+                        <div class="product-name position-absolute font-weight-bold bg-white">VINTAGE DENIM</div>
+                        <div class="decribe position-absolute font-italic font-weight-bold">Men’s classic</div>
+                        <router-link to="/ProductGallery/product/vintage_denim">
+                            <img class="img-6 cursor-pointer" src="https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=634&q=80"/>
+                        </router-link>
+                        <div class="product-num position-absolute font-weight-bold">06</div>
+                        <div class="square-stripe position-absolute"/>
+                        <div class="square-box position-absolute"/>
+                    </div>
                 </div>
             </div>
         </div>
+        <router-view/>
     </div>
 </template>
 
@@ -102,6 +107,7 @@ export default {
 <style lang="scss" scoped>
     .product-gallery {
         min-height: 100vh;
+        max-width: 1025px;
 
         .block {
             height: 27px;
@@ -204,7 +210,7 @@ export default {
             }
 
             .img-1 {
-                position:  absolute;
+                position: absolute;
                 display: block;
                 top: 0;
                 left: 0;

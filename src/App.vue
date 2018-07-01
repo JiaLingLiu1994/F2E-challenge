@@ -23,7 +23,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   min-height: 100vh;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 h1, h2 {

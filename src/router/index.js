@@ -11,6 +11,7 @@ import AdminOrderIndex from '../pages/adminOrder/index.vue';
 import AdminOrderOrders from '../pages/adminOrder/orders.vue';
 import AdminOrderProduct from '../pages/adminOrder/product.vue';
 import ProductGallery from '../pages/productGallery.vue';
+import ProductGalleryIndex from '../pages/productGallery/index.vue';
 import ProductPage from '../pages/productGallery/productPage.vue';
 
 Vue.use(VueRouter);
@@ -41,6 +42,7 @@ export default new VueRouter({
       path: '/ProductGallery',
       component: ProductGallery,
       children: [
+        { path: 'index', component: ProductGalleryIndex },
         { path: 'product/:product', component: ProductPage }
       ]
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="homepage grid p-40px">
         <div class="title font-weight-bold text-left">
-            F2E Challenge
+            F2E Weekly Tasks
         </div>
         <router-link to="/ToDoList">
             <div class="task-img mx-auto cursor-pointer">
@@ -21,8 +21,8 @@
                 <div class="task-name">ADMINORDER</div>
             </div>
         </router-link>
-        <router-link to="/ProductGallery cursor-pointer">
-            <div class="task-img mx-auto">
+        <router-link to="/ProductGallery/index">
+            <div class="task-img mx-auto cursor-pointer">
                 <img src="../../src/assets/productgallery.png"/>
                 <div class="task-name">PRODUCTGALLERY</div>
             </div>
@@ -42,13 +42,16 @@ export default {
 <style lang="scss">
     .grid {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 162px);
+        grid-row-gap: 8px;
     }
 
     .homepage {
         .title {
-        font-size: 36px;
-        text-transform: uppercase;
+            font-size: 36px;
+            line-height: 36px;
+            text-transform: uppercase;
         }
 
         a {

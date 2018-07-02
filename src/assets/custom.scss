@@ -18,12 +18,27 @@ $theme-colors: (
     'yellow-green': #7ED321
 );
 
+.mr-40px {
+    margin-right: 40px;
+}
+
 .mr-32px {
     margin-right: 32px;
 }
 
+.mt-32px {
+    margin-top: 32px;
+}
+
 .mb-32px {
     margin-bottom: 32px;
+}
+
+.p-40px {
+    padding-left: 40px;
+    padding-right: 40px;  
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .p-32px {

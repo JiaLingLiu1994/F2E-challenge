@@ -13,6 +13,7 @@ import AdminOrderProduct from '../pages/adminOrder/product.vue';
 import ProductGallery from '../pages/productGallery.vue';
 import ProductGalleryIndex from '../pages/productGallery/index.vue';
 import ProductPage from '../pages/productGallery/productPage.vue';
+import ComicViewer from '../pages/comicViewer.vue';
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,10 @@ export default new VueRouter({
         { path: 'index', component: ProductGalleryIndex },
         { path: 'product/:product', component: ProductPage }
       ]
+    },
+    {
+      path: '/ComicViewer',
+      component: ComicViewer
     }
   ]
 });

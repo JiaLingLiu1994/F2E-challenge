@@ -27,6 +27,12 @@
                 <div class="task-name">PRODUCTGALLERY</div>
             </div>
         </router-link>
+        <router-link to="/ComicViewer">
+            <div class="task-img mx-auto cursor-pointer">
+                <img src="../../src/assets/comicviewer.png"/>
+                <div class="task-name">PRODUCTGALLERY</div>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -44,7 +50,7 @@ export default {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-row-gap: 8px;
+        grid-row-gap: 16px;
     }
 
     .homepage {

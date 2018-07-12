@@ -14,6 +14,8 @@ import ProductGallery from '../pages/productGallery.vue';
 import ProductGalleryIndex from '../pages/productGallery/index.vue';
 import ProductPage from '../pages/productGallery/productPage.vue';
 import ComicViewer from '../pages/comicViewer.vue';
+import ComicViewerIndex from '../pages/comicViewer/index.vue';
+import ComicViewerReading from '../pages/comicViewer/reading.vue';
 
 Vue.use(VueRouter);
 
@@ -49,7 +51,11 @@ export default new VueRouter({
     },
     {
       path: '/ComicViewer',
-      component: ComicViewer
+      component: ComicViewer,
+      children: [
+        { path: '', component: ComicViewerIndex },
+        { path: 'reading', component: ComicViewerReading }
+      ]
     }
   ]
 });
